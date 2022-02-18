@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+
+    <head>
+
+        <title>Diventa un maestro del BBQ!</title>
+        <link href="style.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,900&display=swap" rel="stylesheet">
+        
+    </head>
+
+    <body>
+
+        <div class="intro">
+            <div class="container container-intro">
+            <h1>Impara a cucinare le <strong> migliori costine BBQ </strong> della città </h1>
+            <p>Unisciti a noi per questo live webinar</p>
+            <p class="top-text">Deliziosamente delizioso</p>
+        </div>        
+        </div>
+
+        <div id="Main-Content" class="main-content">
+            <div class="container">
+            <h2 class="master-bbq"><strong>Diventa un maestro del BBQ!</strong></h2>
+            <p>Registrati Oggi</p>
+            <p>Il BBQ non è soltanto stare in piedi di fronte al grill rovente sperando al meglio.
+                E' un'arte! Un modo per accelerare il processo è quello di imparare dai migliori. Tutto ciò che devi
+                fare è registrarti gratuitamente al nostro webinar!
+            </p>
+            
+            <form id="Email-Collector" class="email-collector" action="#" method="POST">
+                <input name="firstName" type="text" required placeholder="Nome">
+                <br>
+                <input name="emailAddress" type="email" required placeholder="Email">
+                <br>
+                <button class="btn btn-primary" type="submit">Registrati</button>
+
+            </form>
+
+
+            <p class="fine-print">Non condivideremo con nessuno le tue informazioni senza il tuo permesso.</p>
+        </div>
+        </div>
+
+        <script>
+
+            let emailCollectorForm = document.getElementById("Email-Collector")
+            emailCollectorForm.addEventListener("submit", event => {
+            event.preventDefault()
+            
+            let ourFormData = new FormData(event.target)
+            
+            let userFirstName = ourFormData.get("firstName")
+            
+            let updatedHtmlContent = `
+            <h2> Congratulazioni, ${userFirstName}!</h2>
+            <p> Sei sulla buona strada per diventare un maestro del BBQ!</p>   
+            <p class="fine-print">Non condivideremo con nessuno le tue informazioni senza il tuo permesso.</p> `
+
+            let ourMainContent = document.getElementById("Main-Content")
+            ourMainContent.innerHTML = updatedHtmlContent
+
+            })
+        </script>
+
+    </body>
+</html>
